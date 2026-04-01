@@ -35,6 +35,7 @@
    43  cd
    44  cd meu-projeto-ci/
    45  act -l
+       act -n
    46  cd .github/workflows/
    47  act -W ./02-pipeline-principal.yml -P ubuntu-latest=node:slim
    49  cd
