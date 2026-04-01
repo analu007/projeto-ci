@@ -1,0 +1,51 @@
+    1  mkdir meu-projeto-ci
+    2  cd meu-projeto-ci/
+    3  git init
+    4  nano README.md
+    5  git add .
+    6  git commit -m "primeiro commit"
+    7  mkdir .github
+    8  cd .github/
+    9  mkdir workflows
+   10  cd workflows/
+   11  nano 01-hello-local.yml
+   13  cd 
+   14  cd meu-projeto-ci/
+   15  act -l
+   20  act -W .github/workflows/01-hello-local.yml  | grep "|"
+   21  cd .github/workflows/
+   22  nano 02-pipeline-principal.yml
+   24  cd 
+   25  cd meu-projeto-ci/
+   26  act -n
+   27  nano 02-pipeline-principal.yml
+   28  cd .github/workflows/
+   29  nano 02-pipeline-principal.yml
+   31  cd
+   32  cd meu-projeto-ci/
+   33  act -l
+   34  cd .github/workflows/
+   35  nano 02-pipeline-principal.yml
+   36  cd meu-projeto-ci/
+   37  cd
+   38  cd meu-projeto-ci/
+   39  act -l
+   40  cd .github/workflows/
+   41  nano 02-pipeline-principal.yml
+   43  cd
+   44  cd meu-projeto-ci/
+   45  act -l
+   46  cd .github/workflows/
+   47  act -W ./02-pipeline-principal.yml -P ubuntu-latest=node:slim
+   49  cd
+   50  cd meu-projeto-ci/
+   52  act --list
+   53  act -j scan-de-seguranca
+   54  gh repo list
+   58  gh repo create projeto-ci --public --source=. --push --public
+   59  ls
+   60  ls -la
+   62  git add .github/
+   63  git commit -m "Adicionando workflows do github actions"
+   64  git push origin master
+   65  history 100 > comandos.txt
